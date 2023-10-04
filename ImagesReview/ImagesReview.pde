@@ -9,8 +9,13 @@ void setup()
   appHeight = height; //displayHeight
   //
   //Population of Variables
+  backgroundX, backgroundY, backgroundWidth, backgroundHeight
+  obiX, obiY, obiWidth, obiHeight
   //
-  //DIVs as rect()s
+  //DIVs as rect()s: images to be centered
+  rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
+  rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
+  rect(darthX, darthY, darthWidth, darthHeight); //portrait geometry
   //
 } //End setup
 //
