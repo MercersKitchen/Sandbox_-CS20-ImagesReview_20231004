@@ -1,5 +1,8 @@
 //Global Variables
 int appWidth, appHeight;
+float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
+float obiX, obiY, obiWidth, obiHeight;
+float darthX, darthY, darthWidth, darthHeight;
 //
 void setup()
 {
@@ -9,8 +12,18 @@ void setup()
   appHeight = height; //displayHeight
   //
   //Population of Variables
-  backgroundX, backgroundY, backgroundWidth, backgroundHeight
-  obiX, obiY, obiWidth, obiHeight
+  backgroundX = ;
+  backgroundY = ;
+  backgroundWidth = ;
+  backgroundHeight = ;
+  obiX = ;
+  obiY = ;
+  obiWidth = ;
+  obiHeight = ;
+  darthX = ;
+  darthY = ;
+  darthWidth = ;
+  darthHeight = ;
   //
   //DIVs as rect()s: images to be centered
   rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
