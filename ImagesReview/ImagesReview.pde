@@ -1,6 +1,18 @@
 //Global Variables
+int appWidth, appHeight;
 //
-void setup() {} //End setup
+void setup()
+{
+  //fullScreen();
+  size(800, 600);
+  appWidth = width; //displayWidth
+  appHeight = height; //displayHeight
+  //
+  //Population of Variables
+  //
+  //DIVs as rect()s
+  //
+} //End setup
 //
 void draw() {} //End draw
 //
