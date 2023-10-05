@@ -4,6 +4,7 @@ float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
 float obiX, obiY, obiWidth, obiHeight;
 float darthX, darthY, darthWidth, darthHeight;
 PImage backgroundPic, obiPic, darthPic;
+int backgroundPicWidth, backgroundPicHeight, obiPicWidth, obiPicHeight, darthPicWidth, darthPicHeight;
 Boolean nightmode, brightnessControl; //Reminder tint()
 int brightnessNumber=128; //Range: 1-255
 //
@@ -30,11 +31,45 @@ void setup()
   backgroundPic = loadImage("../imagesUsed/pebble-beach.jpg");
   obiPic = loadImage("../imagesUsed/Landscape & Square Images/Obi-wan-star-wars-jedi-23864621-800-600.jpg");
   darthPic = loadImage("../imagesUsed/Portrait/10-star-wars-darth-vader-portrait-wallpaper-1-325x485.jpg");
+  backgroundPicWidth = 860;
+  backgroundPicHeight = 580;
+  obiPicWidth = 800;
+  obiPicHeight = 600;
+  darthPicWidth = 325;
+  darthPicHeight = 485;
   //
   //DIVs as rect()s: images to be centered
   rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
   rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
   rect(darthX, darthY, darthWidth, darthHeight); //portrait geometry
+  //
+  //Aspect Ratio Calculations
+  float aspectRatio=0.0;
+  int picWidth, picHeight, rectWidth, rectHeight;
+  picWidth = ;
+  picHeight = ;
+  rectWidth = ;
+  rectHeight = ;
+  if ( picWidth >= picHeight ) { //Landscape or square
+    aspectRatio = picHeight / picWidth; //CAUTION: int to float, casting
+    picWidth = rectWidth; //1:1
+    picHeight = aspectRatio * rectWidth; //Aspect ratio, rewite smaller dimesion
+    //Error Check
+    if ( picHeight > rectHeight ) {
+      println("Problem");
+    }
+    return picHeight;
+  } else { //Portrait
+    aspectRatio = picWidth / picHeight; //CAUTION: int to float, casting
+    picHeight = rectHeight; //1:1
+    picWidth = aspectRatio * rectHeight; //Aspect ratio, rewite smaller dimesion
+    //Error Check
+    if ( picWidth > rectWidth ) {
+      println("Problem");
+    }
+    return picWidth;
+  }
+  //if ( rectWidth >= rectHeight ) {} else {}
   //
 } //End setup
 //
@@ -51,8 +86,10 @@ void draw()
   //
 } //End draw
 //
-void mousePressed() {} //End mousePressed
+void mousePressed() {
+} //End mousePressed
 //
-void keyPressed() {} //End keyPressed
+void keyPressed() {
+} //End keyPressed
 //
 //End MAIN Program
