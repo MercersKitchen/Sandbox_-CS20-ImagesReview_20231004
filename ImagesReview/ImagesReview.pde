@@ -43,33 +43,7 @@ void setup()
   rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
   rect(darthX, darthY, darthWidth, darthHeight); //portrait geometry
   //
-  //Aspect Ratio Calculations
-  float aspectRatio=0.0;
-  int picWidth, picHeight, rectWidth, rectHeight;
-  picWidth = ;
-  picHeight = ;
-  rectWidth = ;
-  rectHeight = ;
-  if ( picWidth >= picHeight ) { //Landscape or square
-    aspectRatio = picHeight / picWidth; //CAUTION: int to float, casting
-    picWidth = rectWidth; //1:1
-    picHeight = aspectRatio * rectWidth; //Aspect ratio, rewite smaller dimesion
-    //Error Check
-    if ( picHeight > rectHeight ) {
-      println("Problem");
-    }
-    return picHeight;
-  } else { //Portrait
-    aspectRatio = picWidth / picHeight; //CAUTION: int to float, casting
-    picHeight = rectHeight; //1:1
-    picWidth = aspectRatio * rectHeight; //Aspect ratio, rewite smaller dimesion
-    //Error Check
-    if ( picWidth > rectWidth ) {
-      println("Problem");
-    }
-    return picWidth;
-  }
-  //if ( rectWidth >= rectHeight ) {} else {}
+  
   //
 } //End setup
 //
@@ -81,6 +55,7 @@ void draw()
   //Background Image is not Aspect Ratio
   image( backgroundPic, backgroundX, backgroundY, backgroundWidth, backgroundHeight);
   //When Darth in Landscape & Obi in Portrait, not aspect ratio
+  //To get Aspect Ratio: the larger dimension is the size of the rect, smaller dimension is calculated
   image( darthPic, obiX, obiY, obiWidth, obiHeight);
   image ( obiPic, darthX, darthY, darthWidth, darthHeight);
   //
