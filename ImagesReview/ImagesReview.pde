@@ -1,3 +1,6 @@
+/* Aspect Ratio Check: use truth table to ensure all variations of geoemtry
+ can be accounted for by algorithm
+ */
 //Global Variables
 int appWidth, appHeight;
 float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
@@ -43,7 +46,7 @@ void setup()
   rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
   rect(darthX, darthY, darthWidth, darthHeight); //portrait geometry
   //
-  
+
   //
 } //End setup
 //
@@ -53,11 +56,13 @@ void draw()
   //Mathematics for Brightness Control & Night Mode
   //
   //Background Image is not Aspect Ratio
+  //background (255); //Small BUG, 1 pixel
+  rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
   image( backgroundPic, backgroundX, backgroundY, backgroundWidth, backgroundHeight);
   //When Darth in Landscape & Obi in Portrait, not aspect ratio
   //To get Aspect Ratio: the larger dimension is the size of the rect, smaller dimension is calculated
-  image( darthPic, obiX, obiY, obiWidth, obiHeight);
-  image ( obiPic, darthX, darthY, darthWidth, darthHeight);
+  rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
+  imageDraw( darthPic, darthPicWidth, darthPicHeight, obiX, obiY, obiWidth, obiHeight );
   //
 } //End draw
 //
