@@ -1,8 +1,4 @@
- void imageSetup() {
-} //End imageSetup
-//
 void imageDraw (PImage image, int imageWidth, int imageHeight, float rectX, float rectY, float rectWidth, float rectHeight ) {
-  image ( obiPic, darthX, darthY, darthWidth, darthHeight);
   //
   float aspectRatio=0.0;
   float rectDimensionMemory; //Error Checking
@@ -22,35 +18,10 @@ void imageDraw (PImage image, int imageWidth, int imageHeight, float rectX, floa
     */
     if ( rectWidth > rectDimensionMemory ) { //Logically, this should never fail
       println("Error #1"); //Requires an error check
-      exit();
+      exit(); //BUG, use loop() and noLoop() to start and stop draw(), as a review
     } //End WHILE
   } //End IF
   //Purpose: image()
   image( image, rectX, rectX, rectWidth, rectHeight );
-  println( rectX, rectX, rectWidth, rectHeight, imageWidth, imageHeight );
   //
 } //End imageDraw
-
-/*Aspect Ratio Calculations
- 
- 
- aspectRatio = picHeight / picWidth; //CAUTION: int to float, casting
- 
- picHeight = aspectRatio * rectWidth; //Aspect ratio, rewite smaller dimesion
- //Error Check
- if ( picHeight > rectHeight ) {
- println("Problem");
- }
- return picHeight;
- } else { //Portrait
- aspectRatio = picWidth / picHeight; //CAUTION: int to float, casting
- picHeight = rectHeight; //1:1
- picWidth = aspectRatio * rectHeight; //Aspect ratio, rewite smaller dimesion
- //Error Check
- if ( picWidth > rectWidth ) {
- println("Problem");
- }
- return picWidth;
- }
- //if ( rectWidth >= rectHeight ) {} else {}
- */

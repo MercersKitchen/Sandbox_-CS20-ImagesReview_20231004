@@ -8,8 +8,6 @@ float obiX, obiY, obiWidth, obiHeight;
 float darthX, darthY, darthWidth, darthHeight;
 PImage backgroundPic, obiPic, darthPic;
 int backgroundPicWidth, backgroundPicHeight, obiPicWidth, obiPicHeight, darthPicWidth, darthPicHeight;
-Boolean nightmode, brightnessControl; //Reminder tint()
-int brightnessNumber=128; //Range: 1-255
 //
 void setup()
 {
@@ -31,6 +29,7 @@ void setup()
   darthY = appHeight*6/10;
   darthWidth = appWidth*1/8;
   darthHeight = appHeight*1/3;
+  //
   String imageFolderPathway = "../../../imagesUsed/";
   String pebbleBeachImage = "pebble-beach.jpg";
   String landscapeImages = "Landscape & Square Images/";
@@ -48,9 +47,9 @@ void setup()
   darthPicHeight = 485;
   //
   //DIVs as rect()s: images to be centered
-  //rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
-  //rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
-  //rect(darthX, darthY, darthWidth, darthHeight); //portrait geometry
+  rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
+  rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
+  rect(darthX, darthY, darthWidth, darthHeight); //portrait geometry
   //
 
   //
@@ -65,10 +64,11 @@ void draw()
   //background (255); //Small BUG, 1 pixel
   rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
   image( backgroundPic, backgroundX, backgroundY, backgroundWidth, backgroundHeight);
-  //When landscape image into landscape rect(), image is close to asepct ratio
+  //When Darth in Landscape & Obi in Portrait, not aspect ratio
   //To get Aspect Ratio: the larger dimension is the size of the rect, smaller dimension is calculated
-  image (obiPic, obiX, obiY, obiWidth, obiHeight ); //landscape geometry
-  image( darthPic, darthX, darthY, darthWidth, darthHeight ); //Portrait geometry
+  rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
+  imageDraw( darthPic, darthPicWidth, darthPicHeight, obiX, obiY, obiWidth, obiHeight );
+  image ( obiPic, darthX, darthY, darthWidth, darthHeight);
   //
 } //End draw
 //
