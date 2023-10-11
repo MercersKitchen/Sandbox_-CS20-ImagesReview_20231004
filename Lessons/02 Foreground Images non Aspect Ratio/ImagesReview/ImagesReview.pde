@@ -1,3 +1,6 @@
+/* Aspect Ratio Check: use truth table to ensure all variations of geoemtry
+ can be accounted for by algorithm
+ */
 //Global Variables
 int appWidth, appHeight;
 float backgroundX, backgroundY, backgroundWidth, backgroundHeight;
@@ -28,9 +31,15 @@ void setup()
   darthY = appHeight*6/10;
   darthWidth = appWidth*1/8;
   darthHeight = appHeight*1/3;
-  backgroundPic = loadImage("../imagesUsed/pebble-beach.jpg");
-  obiPic = loadImage("../imagesUsed/Landscape & Square Images/Obi-wan-star-wars-jedi-23864621-800-600.jpg");
-  darthPic = loadImage("../imagesUsed/Portrait/10-star-wars-darth-vader-portrait-wallpaper-1-325x485.jpg");
+  String imageFolderPathway = "../../../imagesUsed/";
+  String pebbleBeachImage = "pebble-beach.jpg";
+  String landscapeImages = "Landscape & Square Images/";
+  String portraitImage = "Portrait/";
+  String obi = "Obi-wan-star-wars-jedi-23864621-800-600.jpg";
+  String darth = "10-star-wars-darth-vader-portrait-wallpaper-1-325x485.jpg";
+  backgroundPic = loadImage( imageFolderPathway + pebbleBeachImage );
+  obiPic = loadImage( imageFolderPathway + landscapeImages + obi );
+  darthPic = loadImage( imageFolderPathway + portraitImage + darth );
   backgroundPicWidth = 860;
   backgroundPicHeight = 580;
   obiPicWidth = 800;
@@ -43,7 +52,7 @@ void setup()
   rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
   rect(darthX, darthY, darthWidth, darthHeight); //portrait geometry
   //
-  
+
   //
 } //End setup
 //
@@ -53,12 +62,13 @@ void draw()
   //Mathematics for Brightness Control & Night Mode
   //
   //Background Image is not Aspect Ratio
+  //background (255); //Small BUG, 1 pixel
+  rect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
   image( backgroundPic, backgroundX, backgroundY, backgroundWidth, backgroundHeight);
   //When Darth in Landscape & Obi in Portrait, not aspect ratio
   //To get Aspect Ratio: the larger dimension is the size of the rect, smaller dimension is calculated
-  imageDraw(darthPic, obiX, obiY, obiWidth, obiHeight);
-  
-  image ( obiPic, darthX, darthY, darthWidth, darthHeight);
+  rect(obiX, obiY, obiWidth, obiHeight); //landscape geometry
+  imageDraw( darthPic, darthPicWidth, darthPicHeight, obiX, obiY, obiWidth, obiHeight );
   //
 } //End draw
 //
