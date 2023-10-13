@@ -18,7 +18,9 @@ void imageDraw (PImage image, int imageWidth, int imageHeight, float rectX, floa
       println("Error #1"); //Requires an error check
       exit(); //BUG, use loop() and noLoop() to start and stop draw(), as a review
     } //End WHILE
-    leftover = (rectDimensionMemory-rectHeight)/2; //Right Justified, no leftover //Left Justified, no division
+    //Right Justified, no leftover or /1
+    leftover = (rectDimensionMemory-rectHeight)/2;
+    //Left Justified, no division or *0
     rectY = rectY+leftover;
   } else {
     //Based on Aspect Ratio: imageWidth/imageHeight = rectWidth/rectHeight
@@ -35,8 +37,8 @@ void imageDraw (PImage image, int imageWidth, int imageHeight, float rectX, floa
       println("Error #1"); //Requires an error check
       exit(); //BUG, use loop() and noLoop() to start and stop draw(), as a review
     } //End WHILE
-    leftover = (rectDimensionMemory-rectWidth)/2; //Right Justified, no leftover //Left Justified, no division
-    rectX = rectX+leftover;
+    leftover = (rectDimensionMemory-rectWidth)/2; //Right Justified, no leftover or /1 //Left Justified, no division or *0
+    rectX = rectX+leftover; //*0
   } //End IF
   //Purpose: image()
   image( image, rectX, rectY, rectWidth, rectHeight );
